@@ -5,102 +5,105 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="description" content="testboi4 - A modern web application" />
-    <meta name="keywords" content="html, css, javascript, web app" />
     <meta name="author" content="" />
-    
-    <!-- Open Graph Meta Tags -->
+    <meta name="keywords" content="html, css, javascript" />
+
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:type" content="website" />
     <meta property="og:title" content="testboi4" />
     <meta property="og:description" content="A modern web application" />
-    <meta property="og:type" content="website" />
     
     <title>testboi4</title>
-    
+
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-    
+
     <!-- Stylesheets -->
+    <link rel="stylesheet" href="../src/css/reset.css" />
     <link rel="stylesheet" href="../src/css/variables.css" />
     <link rel="stylesheet" href="../src/css/main.css" />
   </head>
   <body>
     <!-- Header -->
     <header class="header">
-      <nav class="nav">
-        <div class="container">
-          <div class="nav__brand">
-            <h1>testboi4</h1>
-          </div>
-          <ul class="nav__menu">
-            <li class="nav__item"><a href="#home" class="nav__link">Home</a></li>
-            <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
-            <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
+      <div class="container">
+        <nav class="nav">
+          <h1 class="logo">testboi4</h1>
+          <ul class="nav-list">
+            <li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
+            <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+            <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
           </ul>
-        </div>
-      </nav>
+        </nav>
+      </div>
     </header>
 
     <!-- Main Content -->
     <main class="main">
-      <section id="home" class="hero">
-        <div class="container">
-          <div class="hero__content">
-            <h2 class="hero__title">Welcome to testboi4</h2>
-            <p class="hero__description">
-              A modern, production-ready web application built with vanilla HTML, CSS, and JavaScript.
-            </p>
-            <button class="btn btn--primary" id="ctaButton">Get Started</button>
-          </div>
-        </div>
-      </section>
-
-      <section id="features" class="features">
-        <div class="container">
-          <h2 class="section__title">Features</h2>
-          <div class="features__grid">
-            <div class="feature-card">
-              <div class="feature-card__icon">🚀</div>
-              <h3 class="feature-card__title">Fast & Lightweight</h3>
-              <p class="feature-card__description">
-                Built with vanilla JavaScript for optimal performance.
-              </p>
-            </div>
-            <div class="feature-card">
-              <div class="feature-card__icon">📱</div>
-              <h3 class="feature-card__title">Responsive Design</h3>
-              <p class="feature-card__description">
-                Works seamlessly across all devices and screen sizes.
-              </p>
-            </div>
-            <div class="feature-card">
-              <div class="feature-card__icon">🛠️</div>
-              <h3 class="feature-card__title">Modern Tooling</h3>
-              <p class="feature-card__description">
-                Configured with ESLint, Prettier, and best practices.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="about" class="about">
-        <div class="container">
-          <h2 class="section__title">About</h2>
-          <p class="about__text">
-            This project serves as a solid foundation for building modern web applications
-            using the core web technologies: HTML, CSS, and JavaScript.
+      <div class="container">
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+          <h2 class="hero-title">Welcome to testboi4</h2>
+          <p class="hero-subtitle">
+            A modern, production-ready web application built with vanilla HTML, CSS, and JavaScript
           </p>
-        </div>
-      </section>
+          <button class="btn btn-primary" id="cta-button">Get Started</button>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features" id="about">
+          <h2 class="section-title">Features</h2>
+          <div class="features-grid">
+            <div class="feature-card">
+              <div class="feature-icon">✨</div>
+              <h3 class="feature-title">Clean Code</h3>
+              <p class="feature-description">
+                Well-structured, semantic HTML5 with best practices
+              </p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">🎨</div>
+              <h3 class="feature-title">Modern CSS</h3>
+              <p class="feature-description">
+                Responsive design with CSS variables and flexbox/grid
+              </p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">🚀</div>
+              <h3 class="feature-title">Vanilla JS</h3>
+              <p class="feature-description">
+                ES6+ JavaScript with no framework dependencies
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Counter Demo Section -->
+        <section class="demo" id="contact">
+          <h2 class="section-title">Interactive Demo</h2>
+          <div class="counter-demo">
+            <p class="counter-label">Click Counter:</p>
+            <p class="counter-value" id="counter">0</p>
+            <div class="counter-controls">
+              <button class="btn btn-secondary" id="increment-btn">Increment</button>
+              <button class="btn btn-secondary" id="decrement-btn">Decrement</button>
+              <button class="btn btn-outline" id="reset-btn">Reset</button>
+            </div>
+          </div>
+        </section>
+      </div>
     </main>
 
     <!-- Footer -->
     <footer class="footer">
       <div class="container">
-        <p class="footer__text">&copy; 2024 testboi4. All rights reserved.</p>
+        <p class="footer-text">
+          &copy; 2024 testboi4. Built with ❤️ using vanilla HTML, CSS, and JavaScript.
+        </p>
       </div>
     </footer>
 
     <!-- Scripts -->
-    <script type="module" src="../src/js/main.js"></script>
+    <script type="module" src="../src/js/app.js"></script>
   </body>
 </html>

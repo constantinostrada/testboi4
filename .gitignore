@@ -6,12 +6,6 @@ yarn-error.log*
 package-lock.json
 yarn.lock
 
-# Build outputs
-dist/
-build/
-*.min.js
-*.min.css
-
 # Environment variables
 .env
 .env.local
@@ -19,19 +13,22 @@ build/
 .env.test
 .env.production
 
-# IDE and Editor
+# IDE and Editor files
 .vscode/
 .idea/
 *.swp
 *.swo
+*.swn
+*.bak
 *~
 .DS_Store
-*.sublime-project
-*.sublime-workspace
-
-# Operating System
 Thumbs.db
-Desktop.ini
+
+# Build outputs
+dist/
+build/
+*.min.js
+*.min.css
 
 # Logs
 logs/
@@ -46,23 +43,20 @@ tmp/
 temp/
 *.tmp
 
-# Cache
-.cache/
-.eslintcache
-.prettierignore
-
-# Mac
+# OS files
 .DS_Store
-.AppleDouble
-.LSOverride
-
-# Windows
-Thumbs.db
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
 ehthumbs.db
 Desktop.ini
-$RECYCLE.BIN/
 
-# Linux
-*~
-.directory
-.Trash-*
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Optional stylelint cache
+.stylelintcache

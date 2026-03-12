@@ -13,33 +13,29 @@
     "sourceType": "module"
   },
   "rules": {
-    "no-console": ["warn", { "allow": ["warn", "error"] }],
-    "no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
-    "no-var": "error",
+    "no-console": "warn",
+    "no-unused-vars": [
+      "error",
+      {
+        "argsIgnorePattern": "^_",
+        "varsIgnorePattern": "^_"
+      }
+    ],
     "prefer-const": "error",
-    "prefer-arrow-callback": "error",
-    "prefer-template": "error",
+    "no-var": "error",
     "eqeqeq": ["error", "always"],
     "curly": ["error", "all"],
     "brace-style": ["error", "1tbs"],
-    "semi": ["error", "always"],
     "quotes": ["error", "single", { "avoidEscape": true }],
+    "semi": ["error", "always"],
     "indent": ["error", 2, { "SwitchCase": 1 }],
     "comma-dangle": ["error", "always-multiline"],
     "no-trailing-spaces": "error",
     "eol-last": ["error", "always"],
+    "arrow-spacing": "error",
     "object-curly-spacing": ["error", "always"],
     "array-bracket-spacing": ["error", "never"],
-    "space-before-function-paren": ["error", {
-      "anonymous": "always",
-      "named": "never",
-      "asyncArrow": "always"
-    }]
-  },
-  "ignorePatterns": [
-    "node_modules/",
-    "dist/",
-    "build/",
-    "*.min.js"
-  ]
+    "key-spacing": ["error", { "afterColon": true }],
+    "keyword-spacing": "error"
+  }
 }

@@ -4,105 +4,78 @@ A modern, production-ready web application built with vanilla HTML, CSS, and Jav
 
 ## Description
 
-This project provides a clean foundation for building web applications using modern JavaScript practices, organized file structure, and development tooling.
+This project provides a clean, minimal boilerplate for building web applications using vanilla JavaScript. It includes best practices for project structure, linting, formatting, and development workflow.
 
 ## Features
 
-- Modern ES6+ JavaScript
-- Responsive CSS design
-- ESLint for code quality
-- Prettier for code formatting
-- Git hooks with Husky
-- Development server setup
+- ✨ Clean, semantic HTML5 structure
+- 🎨 Modern CSS with CSS variables and responsive design
+- 🚀 Vanilla JavaScript with ES6+ features
+- 📦 ESLint for code quality
+- 💅 Prettier for code formatting
+- 🔧 EditorConfig for consistent coding styles
+- 📝 Comprehensive documentation
 
 ## Project Structure
 
 ```
 testboi4/
 ├── src/
-│   ├── js/
-│   │   ├── main.js
-│   │   ├── utils/
-│   │   └── components/
 │   ├── css/
 │   │   ├── main.css
-│   │   ├── variables.css
-│   │   └── components/
+│   │   ├── reset.css
+│   │   └── variables.css
+│   ├── js/
+│   │   ├── app.js
+│   │   └── utils.js
 │   └── assets/
-│       ├── images/
-│       └── fonts/
+│       └── images/
 ├── public/
 │   └── index.html
-├── tests/
 ├── .gitignore
 ├── .eslintrc.json
 ├── .prettierrc
+├── .editorconfig
 ├── package.json
 └── README.md
 ```
 
-## Getting Started
+## Setup Instructions
 
-### Prerequisites
+1. **Clone the repository**
+   ```bash
+   git clone <repository-url>
+   cd testboi4
+   ```
 
-- Node.js (v14 or higher)
-- npm or yarn
-- Modern web browser
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-### Installation
+3. **Start development**
+   - Open `public/index.html` in your browser
+   - Or use a local development server:
+   ```bash
+   npm start
+   ```
 
-1. Clone the repository:
-```bash
-git clone <repository-url>
-cd testboi4
-```
+## Development
 
-2. Install dependencies:
-```bash
-npm install
-```
+### Available Scripts
 
-### Development
-
-Start the development server:
-```bash
-npm run dev
-```
-
-Open your browser and navigate to `http://localhost:8080`
-
-### Building for Production
-
-Build the project:
-```bash
-npm run build
-```
-
-### Linting and Formatting
-
-Run ESLint:
-```bash
-npm run lint
-```
-
-Fix linting issues:
-```bash
-npm run lint:fix
-```
-
-Format code with Prettier:
-```bash
-npm run format
-```
-
-## Scripts
-
-- `npm run dev` - Start development server
-- `npm run build` - Build for production
-- `npm run lint` - Run ESLint
-- `npm run lint:fix` - Fix ESLint errors
+- `npm start` - Start a local development server
+- `npm run lint` - Run ESLint to check code quality
+- `npm run lint:fix` - Automatically fix linting issues
 - `npm run format` - Format code with Prettier
-- `npm test` - Run tests
+- `npm run format:check` - Check if code is formatted correctly
+
+### Code Quality
+
+This project uses:
+- **ESLint** for identifying and reporting on patterns in JavaScript
+- **Prettier** for automatic code formatting
+- **EditorConfig** for maintaining consistent coding styles
 
 ## Browser Support
 
@@ -121,12 +94,12 @@ npm run format
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+MIT License - feel free to use this project for personal or commercial purposes.
 
 ## Author
 
 Your Name
 
-## Acknowledgments
+---
 
-- Project created with modern web development best practices
+Built with ❤️ using vanilla HTML, CSS, and JavaScript

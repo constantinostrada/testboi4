@@ -1,106 +1,83 @@
 # Contributing to testboi4
 
-Thank you for your interest in contributing to testboi4! This document provides guidelines and instructions for contributing.
+Thank you for considering contributing to testboi4! This document outlines the process and guidelines for contributing.
 
-## Code of Conduct
-
-By participating in this project, you agree to maintain a respectful and inclusive environment for everyone.
-
-## How to Contribute
-
-### Reporting Bugs
-
-1. Check if the bug has already been reported in the Issues section
-2. If not, create a new issue with a clear title and description
-3. Include steps to reproduce, expected behavior, and actual behavior
-4. Add screenshots if applicable
-
-### Suggesting Enhancements
-
-1. Check if the enhancement has already been suggested
-2. Create a new issue with a clear title and detailed description
-3. Explain why this enhancement would be useful
-
-### Pull Requests
+## Getting Started
 
 1. Fork the repository
-2. Create a new branch (`git checkout -b feature/your-feature-name`)
-3. Make your changes
-4. Run linting and tests
-5. Commit your changes with clear commit messages
-6. Push to your fork
-7. Open a Pull Request
+2. Clone your fork: `git clone https://github.com/your-username/testboi4.git`
+3. Create a new branch: `git checkout -b feature/your-feature-name`
+4. Make your changes
+5. Test your changes
+6. Commit your changes: `git commit -m 'Add some feature'`
+7. Push to the branch: `git push origin feature/your-feature-name`
+8. Submit a pull request
 
-## Development Setup
+## Development Guidelines
 
-1. Clone the repository:
-```bash
-git clone <repository-url>
-cd testboi4
+### Code Style
+
+- Follow the ESLint configuration provided in the project
+- Use Prettier for code formatting
+- Write clean, readable, and maintainable code
+- Add comments for complex logic
+
+### Commit Messages
+
+- Use clear and descriptive commit messages
+- Start with a verb in the present tense (e.g., "Add", "Fix", "Update")
+- Keep the first line under 50 characters
+- Add a detailed description if necessary
+
+Example:
+```
+Add user authentication feature
+
+- Implement login functionality
+- Add JWT token handling
+- Create protected routes
 ```
 
-2. Install dependencies:
-```bash
-npm install
-```
+### Code Review Process
 
-3. Start development server:
-```bash
-npm run dev
-```
+1. All submissions require review
+2. Address any feedback or requested changes
+3. Maintain a respectful and constructive dialogue
+4. Once approved, your PR will be merged
 
-## Coding Standards
+### Testing
 
-### JavaScript
+- Test your changes thoroughly before submitting
+- Ensure the application works in different browsers
+- Check responsive design on various screen sizes
 
-- Use ES6+ features
-- Follow ESLint configuration
-- Use meaningful variable and function names
-- Add JSDoc comments for functions
-- Keep functions small and focused
+### Pull Request Guidelines
 
-### CSS
+- Provide a clear description of the changes
+- Reference any related issues
+- Include screenshots for UI changes
+- Ensure all checks pass
 
-- Follow BEM naming convention where appropriate
-- Use CSS custom properties (variables)
-- Keep styles modular and reusable
-- Mobile-first responsive design
+## Reporting Issues
 
-### HTML
+- Use the GitHub issue tracker
+- Check if the issue already exists
+- Provide detailed information:
+  - Steps to reproduce
+  - Expected behavior
+  - Actual behavior
+  - Browser and OS information
+  - Screenshots if applicable
 
-- Use semantic HTML5 elements
-- Ensure accessibility (ARIA labels, alt text, etc.)
-- Keep markup clean and well-indented
+## Feature Requests
 
-## Commit Messages
-
-Follow conventional commit format:
-
-- `feat:` New feature
-- `fix:` Bug fix
-- `docs:` Documentation changes
-- `style:` Code style changes (formatting, etc.)
-- `refactor:` Code refactoring
-- `test:` Adding or updating tests
-- `chore:` Maintenance tasks
-
-Example: `feat: add user authentication`
-
-## Testing
-
-- Write tests for new features
-- Ensure all tests pass before submitting PR
-- Maintain or improve code coverage
-
-## Code Review Process
-
-1. All PRs require at least one review
-2. Address review comments
-3. Keep PRs focused and reasonably sized
-4. Update documentation as needed
+- Use the GitHub issue tracker
+- Clearly describe the feature and its benefits
+- Explain the use case
+- Be open to discussion and feedback
 
 ## Questions?
 
-Feel free to open an issue for any questions or clarifications.
+Feel free to open an issue for any questions or concerns.
 
 Thank you for contributing! 🎉
