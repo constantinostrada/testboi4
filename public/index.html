@@ -5,130 +5,98 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="description" content="testboi4 - A modern web application" />
-    <meta name="keywords" content="html, css, javascript, web application" />
+    <meta name="keywords" content="html, css, javascript, web app" />
     <meta name="author" content="" />
-
+    
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="testboi4" />
     <meta property="og:description" content="A modern web application" />
     <meta property="og:type" content="website" />
-
+    
+    <title>testboi4</title>
+    
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-
+    
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="../src/css/reset.css" />
     <link rel="stylesheet" href="../src/css/variables.css" />
     <link rel="stylesheet" href="../src/css/main.css" />
-
-    <title>testboi4</title>
   </head>
   <body>
     <!-- Header -->
     <header class="header">
-      <div class="container">
-        <nav class="nav" role="navigation" aria-label="Main navigation">
+      <nav class="nav">
+        <div class="container">
           <div class="nav__brand">
-            <h1 class="nav__logo">testboi4</h1>
+            <h1>testboi4</h1>
           </div>
           <ul class="nav__menu">
-            <li class="nav__item">
-              <a href="#home" class="nav__link">Home</a>
-            </li>
-            <li class="nav__item">
-              <a href="#about" class="nav__link">About</a>
-            </li>
-            <li class="nav__item">
-              <a href="#contact" class="nav__link">Contact</a>
-            </li>
+            <li class="nav__item"><a href="#home" class="nav__link">Home</a></li>
+            <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
+            <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
           </ul>
-        </nav>
-      </div>
+        </div>
+      </nav>
     </header>
 
     <!-- Main Content -->
     <main class="main">
-      <!-- Hero Section -->
-      <section class="hero" id="home">
+      <section id="home" class="hero">
         <div class="container">
           <div class="hero__content">
             <h2 class="hero__title">Welcome to testboi4</h2>
-            <p class="hero__subtitle">
-              A modern, production-ready web application built with vanilla HTML, CSS, and
-              JavaScript.
+            <p class="hero__description">
+              A modern, production-ready web application built with vanilla HTML, CSS, and JavaScript.
             </p>
-            <div class="hero__actions">
-              <button class="btn btn--primary" id="ctaButton">Get Started</button>
-              <button class="btn btn--secondary">Learn More</button>
-            </div>
+            <button class="btn btn--primary" id="ctaButton">Get Started</button>
           </div>
         </div>
       </section>
 
-      <!-- Features Section -->
-      <section class="features" id="about">
+      <section id="features" class="features">
         <div class="container">
           <h2 class="section__title">Features</h2>
           <div class="features__grid">
-            <article class="feature-card">
-              <div class="feature-card__icon">🎨</div>
-              <h3 class="feature-card__title">Modern Design</h3>
+            <div class="feature-card">
+              <div class="feature-card__icon">🚀</div>
+              <h3 class="feature-card__title">Fast & Lightweight</h3>
               <p class="feature-card__description">
-                Clean and responsive design with modern CSS techniques.
+                Built with vanilla JavaScript for optimal performance.
               </p>
-            </article>
-            <article class="feature-card">
-              <div class="feature-card__icon">⚡</div>
-              <h3 class="feature-card__title">Fast Performance</h3>
-              <p class="feature-card__description">
-                Optimized for speed and performance with vanilla JavaScript.
-              </p>
-            </article>
-            <article class="feature-card">
-              <div class="feature-card__icon">♿</div>
-              <h3 class="feature-card__title">Accessible</h3>
-              <p class="feature-card__description">
-                Built with accessibility in mind following WCAG guidelines.
-              </p>
-            </article>
-            <article class="feature-card">
+            </div>
+            <div class="feature-card">
               <div class="feature-card__icon">📱</div>
-              <h3 class="feature-card__title">Responsive</h3>
+              <h3 class="feature-card__title">Responsive Design</h3>
               <p class="feature-card__description">
                 Works seamlessly across all devices and screen sizes.
               </p>
-            </article>
+            </div>
+            <div class="feature-card">
+              <div class="feature-card__icon">🛠️</div>
+              <h3 class="feature-card__title">Modern Tooling</h3>
+              <p class="feature-card__description">
+                Configured with ESLint, Prettier, and best practices.
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
-      <!-- Counter Demo Section -->
-      <section class="demo">
+      <section id="about" class="about">
         <div class="container">
-          <h2 class="section__title">Interactive Demo</h2>
-          <div class="counter">
-            <p class="counter__label">Click Counter:</p>
-            <p class="counter__value" id="counterValue">0</p>
-            <div class="counter__actions">
-              <button class="btn btn--primary" id="incrementBtn">Increment</button>
-              <button class="btn btn--secondary" id="resetBtn">Reset</button>
-            </div>
-          </div>
+          <h2 class="section__title">About</h2>
+          <p class="about__text">
+            This project serves as a solid foundation for building modern web applications
+            using the core web technologies: HTML, CSS, and JavaScript.
+          </p>
         </div>
       </section>
     </main>
 
     <!-- Footer -->
-    <footer class="footer" id="contact">
+    <footer class="footer">
       <div class="container">
-        <div class="footer__content">
-          <p class="footer__text">&copy; 2024 testboi4. All rights reserved.</p>
-          <div class="footer__links">
-            <a href="#" class="footer__link">Privacy Policy</a>
-            <a href="#" class="footer__link">Terms of Service</a>
-            <a href="#" class="footer__link">Contact</a>
-          </div>
-        </div>
+        <p class="footer__text">&copy; 2024 testboi4. All rights reserved.</p>
       </div>
     </footer>
 

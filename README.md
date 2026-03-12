@@ -4,33 +4,36 @@ A modern, production-ready web application built with vanilla HTML, CSS, and Jav
 
 ## Description
 
-testboi4 is a clean, minimal web application following modern best practices and standards. The project is structured for scalability and maintainability.
+This project provides a clean foundation for building web applications using modern JavaScript practices, organized file structure, and development tooling.
 
 ## Features
 
-- 🎨 Modern, responsive CSS with CSS Grid and Flexbox
-- 📱 Mobile-first design approach
-- ♿ Accessible HTML5 markup
-- 🚀 Vanilla JavaScript (ES6+)
-- 🔧 ESLint and Prettier configuration
-- 📦 Organized project structure
+- Modern ES6+ JavaScript
+- Responsive CSS design
+- ESLint for code quality
+- Prettier for code formatting
+- Git hooks with Husky
+- Development server setup
 
 ## Project Structure
 
 ```
 testboi4/
 ├── src/
+│   ├── js/
+│   │   ├── main.js
+│   │   ├── utils/
+│   │   └── components/
 │   ├── css/
 │   │   ├── main.css
 │   │   ├── variables.css
-│   │   └── reset.css
-│   ├── js/
-│   │   ├── main.js
-│   │   └── utils.js
+│   │   └── components/
 │   └── assets/
-│       └── images/
+│       ├── images/
+│       └── fonts/
 ├── public/
 │   └── index.html
+├── tests/
 ├── .gitignore
 ├── .eslintrc.json
 ├── .prettierrc
@@ -42,8 +45,9 @@ testboi4/
 
 ### Prerequisites
 
-- A modern web browser (Chrome, Firefox, Safari, Edge)
-- (Optional) Node.js and npm for development tools
+- Node.js (v14 or higher)
+- npm or yarn
+- Modern web browser
 
 ### Installation
 
@@ -53,43 +57,52 @@ git clone <repository-url>
 cd testboi4
 ```
 
-2. (Optional) Install development dependencies:
+2. Install dependencies:
 ```bash
 npm install
 ```
 
 ### Development
 
-1. Open `public/index.html` in your browser, or use a local development server:
-
+Start the development server:
 ```bash
-# Using Python 3
-python -m http.server 8000
-
-# Using Node.js http-server (install globally: npm install -g http-server)
-http-server public -p 8000
-
-# Using PHP
-php -S localhost:8000 -t public
+npm run dev
 ```
 
-2. Navigate to `http://localhost:8000` in your browser
+Open your browser and navigate to `http://localhost:8080`
+
+### Building for Production
+
+Build the project:
+```bash
+npm run build
+```
 
 ### Linting and Formatting
 
+Run ESLint:
 ```bash
-# Run ESLint
 npm run lint
-
-# Fix ESLint issues automatically
-npm run lint:fix
-
-# Format code with Prettier
-npm run format
-
-# Check formatting
-npm run format:check
 ```
+
+Fix linting issues:
+```bash
+npm run lint:fix
+```
+
+Format code with Prettier:
+```bash
+npm run format
+```
+
+## Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run lint` - Run ESLint
+- `npm run lint:fix` - Fix ESLint errors
+- `npm run format` - Format code with Prettier
+- `npm test` - Run tests
 
 ## Browser Support
 
@@ -110,7 +123,10 @@ npm run format:check
 
 This project is licensed under the MIT License - see the LICENSE file for details.
 
+## Author
+
+Your Name
+
 ## Acknowledgments
 
-- Built with modern web standards
-- Follows accessibility guidelines (WCAG 2.1)
+- Project created with modern web development best practices

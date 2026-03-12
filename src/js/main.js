@@ -1,160 +1,120 @@
 /**
- * Main JavaScript Entry Point
+ * Main application entry point
  * @module main
  */
 
-import { debounce, formatNumber } from './utils.js';
+import { initializeApp } from './utils/app.js';
+import { logger } from './utils/logger.js';
 
 /**
  * Application state
  */
 const state = {
-  counter: 0,
+  initialized: false,
+  version: '1.0.0',
 };
 
 /**
- * Initialize the application
+ * Initialize event listeners
  */
-const init = () => {
-  console.log('Application initialized');
-  setupEventListeners();
-  setupSmoothScroll();
-};
-
-/**
- * Set up all event listeners
- */
-const setupEventListeners = () => {
-  // Counter functionality
-  const incrementBtn = document.getElementById('incrementBtn');
-  const resetBtn = document.getElementById('resetBtn');
+const initEventListeners = () => {
+  // CTA Button
   const ctaButton = document.getElementById('ctaButton');
-
-  if (incrementBtn) {
-    incrementBtn.addEventListener('click', handleIncrement);
-  }
-
-  if (resetBtn) {
-    resetBtn.addEventListener('click', handleReset);
-  }
-
   if (ctaButton) {
-    ctaButton.addEventListener('click', handleCTA);
+    ctaButton.addEventListener('click', handleCtaClick);
   }
 
-  // Window resize handler with debounce
-  window.addEventListener('resize', debounce(handleResize, 250));
-
-  // Log page visibility changes
-  document.addEventListener('visibilitychange', handleVisibilityChange);
-};
-
-/**
- * Set up smooth scrolling for anchor links
- */
-const setupSmoothScroll = () => {
+  // Navigation links smooth scroll
   const navLinks = document.querySelectorAll('.nav__link');
-
-  navLinks.forEach(link => {
-    link.addEventListener('click', e => {
-      const href = link.getAttribute('href');
-
-      if (href.startsWith('#')) {
-        e.preventDefault();
-        const target = document.querySelector(href);
-
-        if (target) {
-          target.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start',
-          });
-        }
-      }
-    });
+  navLinks.forEach((link) => {
+    link.addEventListener('click', handleNavLinkClick);
   });
-};
 
-/**
- * Handle counter increment
- */
-const handleIncrement = () => {
-  state.counter += 1;
-  updateCounterDisplay();
-};
-
-/**
- * Handle counter reset
- */
-const handleReset = () => {
-  state.counter = 0;
-  updateCounterDisplay();
-};
-
-/**
- * Update the counter display
- */
-const updateCounterDisplay = () => {
-  const counterValue = document.getElementById('counterValue');
-
-  if (counterValue) {
-    counterValue.textContent = formatNumber(state.counter);
-
-    // Add animation class
-    counterValue.classList.add('animate');
-    setTimeout(() => {
-      counterValue.classList.remove('animate');
-    }, 300);
-  }
+  // Window events
+  window.addEventListener('load', handleWindowLoad);
+  window.addEventListener('resize', handleWindowResize);
 };
 
 /**
  * Handle CTA button click
+ * @param {Event} event - Click event
  */
-const handleCTA = () => {
-  alert('Welcome to testboi4! 🚀\n\nThis is a production-ready boilerplate project.');
-};
-
-/**
- * Handle window resize
- */
-const handleResize = () => {
-  const width = window.innerWidth;
-  console.log(`Window resized to: ${width}px`);
-};
-
-/**
- * Handle page visibility change
- */
-const handleVisibilityChange = () => {
-  if (document.hidden) {
-    console.log('Page is hidden');
-  } else {
-    console.log('Page is visible');
-  }
-};
-
-/**
- * Add simple animation to counter
- */
-const style = document.createElement('style');
-style.textContent = `
-  @keyframes pulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.1); }
-  }
+const handleCtaClick = (event) => {
+  event.preventDefault();
+  logger.log('CTA button clicked');
   
-  .counter__value.animate {
-    animation: pulse 0.3s ease-in-out;
-  }
-`;
-document.head.appendChild(style);
+  // Example: Show alert or navigate
+  alert('Welcome to testboi4! Start building your application.');
+};
 
-// Initialize when DOM is ready
+/**
+ * Handle navigation link clicks for smooth scrolling
+ * @param {Event} event - Click event
+ */
+const handleNavLinkClick = (event) => {
+  const href = event.target.getAttribute('href');
+  
+  if (href && href.startsWith('#')) {
+    event.preventDefault();
+    const targetId = href.substring(1);
+    const targetElement = document.getElementById(targetId);
+    
+    if (targetElement) {
+      targetElement.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      });
+    }
+  }
+};
+
+/**
+ * Handle window load event
+ */
+const handleWindowLoad = () => {
+  logger.log('Window loaded');
+  document.body.classList.add('loaded');
+};
+
+/**
+ * Handle window resize event
+ */
+let resizeTimeout;
+const handleWindowResize = () => {
+  clearTimeout(resizeTimeout);
+  resizeTimeout = setTimeout(() => {
+    logger.log(`Window resized to ${window.innerWidth}x${window.innerHeight}`);
+  }, 250);
+};
+
+/**
+ * Main application initialization
+ */
+const main = () => {
+  try {
+    logger.log('Initializing testboi4...');
+    
+    // Initialize app utilities
+    initializeApp();
+    
+    // Initialize event listeners
+    initEventListeners();
+    
+    // Update state
+    state.initialized = true;
+    
+    logger.log(`testboi4 v${state.version} initialized successfully`);
+  } catch (error) {
+    logger.error('Failed to initialize application:', error);
+  }
+};
+
+// Start the application when DOM is ready
 if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', init);
+  document.addEventListener('DOMContentLoaded', main);
 } else {
-  init();
+  main();
 }
 
-// Export for testing purposes
-export { init, state };
+// Export for potential module usage
+export { state };
