@@ -1,83 +1,101 @@
 # Contributing to testboi4
 
-Thank you for considering contributing to testboi4! This document outlines the process and guidelines for contributing.
+Thank you for considering contributing to testboi4! This document provides guidelines for contributing to the project.
 
-## Getting Started
+## Code of Conduct
+
+By participating in this project, you agree to maintain a respectful and inclusive environment for everyone.
+
+## How to Contribute
+
+### Reporting Bugs
+
+1. Check if the bug has already been reported in the Issues section
+2. If not, create a new issue with a clear title and description
+3. Include steps to reproduce the bug
+4. Add any relevant screenshots or error messages
+
+### Suggesting Features
+
+1. Check if the feature has already been suggested
+2. Create a new issue with the "feature request" label
+3. Clearly describe the feature and its benefits
+4. Provide examples of how it would work
+
+### Pull Requests
 
 1. Fork the repository
-2. Clone your fork: `git clone https://github.com/your-username/testboi4.git`
-3. Create a new branch: `git checkout -b feature/your-feature-name`
-4. Make your changes
-5. Test your changes
-6. Commit your changes: `git commit -m 'Add some feature'`
-7. Push to the branch: `git push origin feature/your-feature-name`
-8. Submit a pull request
+2. Create a new branch for your feature or bugfix:
+   ```bash
+   git checkout -b feature/your-feature-name
+   ```
+3. Make your changes following the code style guidelines
+4. Test your changes thoroughly
+5. Commit your changes with clear, descriptive messages
+6. Push to your fork and submit a pull request
 
 ## Development Guidelines
 
 ### Code Style
 
-- Follow the ESLint configuration provided in the project
-- Use Prettier for code formatting
-- Write clean, readable, and maintainable code
+- Use ES6+ JavaScript features
+- Follow the existing code formatting (use Prettier)
+- Write clear, self-documenting code
 - Add comments for complex logic
+- Follow the ESLint rules configured in the project
+
+### File Organization
+
+- Keep files focused and single-purpose
+- Place utility functions in `src/js/utils/`
+- Place components in `src/js/components/`
+- Keep CSS modular and component-based
+
+### CSS Guidelines
+
+- Use CSS custom properties for theming
+- Follow BEM naming convention for classes
+- Keep styles scoped to components
+- Mobile-first responsive design
+
+### JavaScript Guidelines
+
+- Use ES6 modules
+- Keep functions small and focused
+- Use meaningful variable and function names
+- Handle errors appropriately
+- Add JSDoc comments for public functions
 
 ### Commit Messages
 
 - Use clear and descriptive commit messages
-- Start with a verb in the present tense (e.g., "Add", "Fix", "Update")
+- Start with a verb in present tense (Add, Fix, Update, Remove)
 - Keep the first line under 50 characters
-- Add a detailed description if necessary
+- Add detailed description if needed
 
 Example:
 ```
-Add user authentication feature
+Add form validation for contact form
 
-- Implement login functionality
-- Add JWT token handling
-- Create protected routes
+- Implement email validation
+- Add required field checks
+- Display error messages to users
 ```
-
-### Code Review Process
-
-1. All submissions require review
-2. Address any feedback or requested changes
-3. Maintain a respectful and constructive dialogue
-4. Once approved, your PR will be merged
 
 ### Testing
 
-- Test your changes thoroughly before submitting
-- Ensure the application works in different browsers
-- Check responsive design on various screen sizes
+- Test your changes in multiple browsers
+- Test responsive behavior on different screen sizes
+- Verify accessibility features work correctly
 
-### Pull Request Guidelines
+## Getting Help
 
-- Provide a clear description of the changes
-- Reference any related issues
-- Include screenshots for UI changes
-- Ensure all checks pass
+If you need help or have questions:
 
-## Reporting Issues
+- Check the README.md for setup instructions
+- Review existing issues and pull requests
+- Create a new issue with the "question" label
 
-- Use the GitHub issue tracker
-- Check if the issue already exists
-- Provide detailed information:
-  - Steps to reproduce
-  - Expected behavior
-  - Actual behavior
-  - Browser and OS information
-  - Screenshots if applicable
+## License
 
-## Feature Requests
-
-- Use the GitHub issue tracker
-- Clearly describe the feature and its benefits
-- Explain the use case
-- Be open to discussion and feedback
-
-## Questions?
-
-Feel free to open an issue for any questions or concerns.
-
-Thank you for contributing! 🎉
+By contributing to testboi4, you agree that your contributions will be licensed under the MIT License.

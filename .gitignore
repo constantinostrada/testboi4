@@ -13,22 +13,23 @@ yarn.lock
 .env.test
 .env.production
 
-# IDE and Editor files
-.vscode/
-.idea/
-*.swp
-*.swo
-*.swn
-*.bak
-*~
-.DS_Store
-Thumbs.db
-
 # Build outputs
 dist/
 build/
 *.min.js
 *.min.css
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
+*~
+.DS_Store
 
 # Logs
 logs/
@@ -44,19 +45,18 @@ temp/
 *.tmp
 
 # OS files
+Thumbs.db
 .DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
-Desktop.ini
+.AppleDouble
+.LSOverride
+
+# Cache
+.cache/
+.eslintcache
+.prettierache
 
 # Optional npm cache directory
 .npm
 
-# Optional eslint cache
-.eslintcache
-
-# Optional stylelint cache
-.stylelintcache
+# Optional REPL history
+.node_repl_history

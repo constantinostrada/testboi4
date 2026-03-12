@@ -1,93 +1,79 @@
 /**
- * Logger utility for consistent logging
- * @module utils/logger
+ * Logger Utility
+ * Provides consistent logging across the application
  */
+
+const LOG_LEVELS = {
+  error: 'error',
+  warn: 'warn',
+  info: 'info',
+  success: 'log',
+  debug: 'log',
+};
+
+const LOG_STYLES = {
+  error: 'color: #ef4444; font-weight: bold;',
+  warn: 'color: #f59e0b; font-weight: bold;',
+  info: 'color: #3b82f6;',
+  success: 'color: #10b981; font-weight: bold;',
+  debug: 'color: #6b7280;',
+};
 
 /**
- * Logger class for application logging
+ * Main log function
  */
-class Logger {
-  constructor() {
-    this.prefix = '[testboi4]';
-    this.isDevelopment = window.location.hostname === 'localhost' || 
-                         window.location.hostname === '127.0.0.1';
+export const log = (message, level = 'info') => {
+  // Don't log in production unless it's an error or warning
+  if (process.env.NODE_ENV === 'production' && !['error', 'warn'].includes(level)) {
+    return;
   }
 
-  /**
-   * Log informational message
-   * @param {...any} args - Arguments to log
-   */
-  log(...args) {
-    if (this.isDevelopment) {
-      console.log(this.prefix, ...args);
-    }
-  }
+  const consoleMethod = LOG_LEVELS[level] || 'log';
+  const style = LOG_STYLES[level] || '';
 
-  /**
-   * Log informational message (alias for log)
-   * @param {...any} args - Arguments to log
-   */
-  info(...args) {
-    if (this.isDevelopment) {
-      console.info(this.prefix, ...args);
-    }
+  if (typeof message === 'object') {
+    console[consoleMethod]('%c[testboi4]', style, message);
+  } else {
+    console[consoleMethod](`%c[testboi4] ${message}`, style);
   }
+};
 
-  /**
-   * Log warning message
-   * @param {...any} args - Arguments to log
-   */
-  warn(...args) {
-    console.warn(this.prefix, ...args);
-  }
+/**
+ * Convenience methods
+ */
+export const logger = {
+  error: (message) => log(message, 'error'),
+  warn: (message) => log(message, 'warn'),
+  info: (message) => log(message, 'info'),
+  success: (message) => log(message, 'success'),
+  debug: (message) => log(message, 'debug'),
+};
 
-  /**
-   * Log error message
-   * @param {...any} args - Arguments to log
-   */
-  error(...args) {
-    console.error(this.prefix, ...args);
-  }
+/**
+ * Log group for related messages
+ */
+export const logGroup = (title, callback) => {
+  console.group(`%c[testboi4] ${title}`, LOG_STYLES.info);
+  callback();
+  console.groupEnd();
+};
 
-  /**
-   * Log debug message
-   * @param {...any} args - Arguments to log
-   */
-  debug(...args) {
-    if (this.isDevelopment) {
-      console.debug(this.prefix, ...args);
-    }
-  }
+/**
+ * Log table for structured data
+ */
+export const logTable = (data, columns) => {
+  console.table(data, columns);
+};
 
-  /**
-   * Group log messages
-   * @param {string} label - Group label
-   */
-  group(label) {
-    if (this.isDevelopment) {
-      console.group(`${this.prefix} ${label}`);
-    }
-  }
+/**
+ * Performance logging
+ */
+export const logPerformance = (label) => {
+  const startTime = performance.now();
 
-  /**
-   * End group
-   */
-  groupEnd() {
-    if (this.isDevelopment) {
-      console.groupEnd();
-    }
-  }
-
-  /**
-   * Log table data
-   * @param {*} data - Data to display in table format
-   */
-  table(data) {
-    if (this.isDevelopment) {
-      console.table(data);
-    }
-  }
-}
-
-// Export singleton instance
-export const logger = new Logger();
+  return () => {
+    const endTime = performance.now();
+    const duration = (endTime - startTime).toFixed(2);
+    log(`${label} took ${duration}ms`, 'debug');
+  };
+};

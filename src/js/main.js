@@ -1,120 +1,91 @@
 /**
- * Main application entry point
- * @module main
+ * Main JavaScript Entry Point
+ * testboi4
  */
 
-import { initializeApp } from './utils/app.js';
-import { logger } from './utils/logger.js';
-
-/**
- * Application state
- */
-const state = {
-  initialized: false,
-  version: '1.0.0',
-};
+import { initNavigation } from './components/navigation.js';
+import { initContactForm } from './components/contactForm.js';
+import { updateCurrentYear } from './utils/helpers.js';
+import { log } from './utils/logger.js';
 
 /**
- * Initialize event listeners
+ * Initialize the application
  */
-const initEventListeners = () => {
-  // CTA Button
-  const ctaButton = document.getElementById('ctaButton');
+const initApp = () => {
+  log('Initializing application...');
+
+  // Initialize components
+  initNavigation();
+  initContactForm();
+
+  // Update current year in footer
+  updateCurrentYear();
+
+  // Add event listener for CTA button
+  const ctaButton = document.getElementById('cta-button');
   if (ctaButton) {
     ctaButton.addEventListener('click', handleCtaClick);
   }
 
-  // Navigation links smooth scroll
-  const navLinks = document.querySelectorAll('.nav__link');
-  navLinks.forEach((link) => {
-    link.addEventListener('click', handleNavLinkClick);
-  });
+  // Add smooth scroll behavior for anchor links
+  initSmoothScroll();
 
-  // Window events
-  window.addEventListener('load', handleWindowLoad);
-  window.addEventListener('resize', handleWindowResize);
+  log('Application initialized successfully');
 };
 
 /**
  * Handle CTA button click
- * @param {Event} event - Click event
  */
-const handleCtaClick = (event) => {
-  event.preventDefault();
-  logger.log('CTA button clicked');
-  
-  // Example: Show alert or navigate
-  alert('Welcome to testboi4! Start building your application.');
-};
-
-/**
- * Handle navigation link clicks for smooth scrolling
- * @param {Event} event - Click event
- */
-const handleNavLinkClick = (event) => {
-  const href = event.target.getAttribute('href');
-  
-  if (href && href.startsWith('#')) {
-    event.preventDefault();
-    const targetId = href.substring(1);
-    const targetElement = document.getElementById(targetId);
-    
-    if (targetElement) {
-      targetElement.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start',
-      });
-    }
+const handleCtaClick = () => {
+  log('CTA button clicked');
+  // Scroll to contact section
+  const contactSection = document.getElementById('contact');
+  if (contactSection) {
+    contactSection.scrollIntoView({ behavior: 'smooth' });
   }
 };
 
 /**
- * Handle window load event
+ * Initialize smooth scrolling for anchor links
  */
-const handleWindowLoad = () => {
-  logger.log('Window loaded');
-  document.body.classList.add('loaded');
+const initSmoothScroll = () => {
+  const links = document.querySelectorAll('a[href^="#"]');
+
+  links.forEach((link) => {
+    link.addEventListener('click', (e) => {
+      const href = link.getAttribute('href');
+
+      // Don't prevent default for # links
+      if (href === '#') {
+        return;
+      }
+
+      e.preventDefault();
+      const targetId = href.substring(1);
+      const targetElement = document.getElementById(targetId);
+
+      if (targetElement) {
+        targetElement.scrollIntoView({ behavior: 'smooth' });
+
+        // Update active state in navigation
+        const navLinks = document.querySelectorAll('.nav__link');
+        navLinks.forEach((navLink) => navLink.classList.remove('active'));
+        link.classList.add('active');
+      }
+    });
+  });
 };
 
 /**
- * Handle window resize event
+ * DOMContentLoaded event listener
  */
-let resizeTimeout;
-const handleWindowResize = () => {
-  clearTimeout(resizeTimeout);
-  resizeTimeout = setTimeout(() => {
-    logger.log(`Window resized to ${window.innerWidth}x${window.innerHeight}`);
-  }, 250);
-};
-
-/**
- * Main application initialization
- */
-const main = () => {
-  try {
-    logger.log('Initializing testboi4...');
-    
-    // Initialize app utilities
-    initializeApp();
-    
-    // Initialize event listeners
-    initEventListeners();
-    
-    // Update state
-    state.initialized = true;
-    
-    logger.log(`testboi4 v${state.version} initialized successfully`);
-  } catch (error) {
-    logger.error('Failed to initialize application:', error);
-  }
-};
-
-// Start the application when DOM is ready
 if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', main);
+  document.addEventListener('DOMContentLoaded', initApp);
 } else {
-  main();
+  initApp();
 }
 
-// Export for potential module usage
-export { state };
+/**
+ * Export for testing purposes
+ */
+export { initApp, handleCtaClick };
