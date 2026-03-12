@@ -6,30 +6,28 @@ yarn-error.log*
 package-lock.json
 yarn.lock
 
-# Environment variables
-.env
-.env.local
-.env.development
-.env.test
-.env.production
-
 # Build outputs
 dist/
 build/
 *.min.js
 *.min.css
 
-# Editor directories and files
-.vscode/*
-!.vscode/extensions.json
-!.vscode/settings.json
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# IDE and Editor
+.vscode/
 .idea/
-*.sublime-project
-*.sublime-workspace
 *.swp
 *.swo
 *~
 .DS_Store
+*.sublime-project
+*.sublime-workspace
 
 # Logs
 logs/
@@ -47,16 +45,3 @@ temp/
 # OS files
 Thumbs.db
 .DS_Store
-.AppleDouble
-.LSOverride
-
-# Cache
-.cache/
-.eslintcache
-.prettierache
-
-# Optional npm cache directory
-.npm
-
-# Optional REPL history
-.node_repl_history

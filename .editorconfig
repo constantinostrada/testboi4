@@ -1,4 +1,5 @@
-# EditorConfig is awesome: https://EditorConfig.org
+# EditorConfig helps maintain consistent coding styles
+# https://editorconfig.org
 
 root = true
 
@@ -14,4 +15,13 @@ trim_trailing_whitespace = true
 trim_trailing_whitespace = false
 
 [*.{json,yml,yaml}]
+indent_size = 2
+
+[*.html]
+indent_size = 2
+
+[*.{css,scss}]
+indent_size = 2
+
+[*.{js,jsx,ts,tsx}]
 indent_size = 2

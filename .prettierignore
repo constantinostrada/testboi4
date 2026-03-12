@@ -1,8 +1,15 @@
+# Dependencies
 node_modules/
+
+# Build outputs
 dist/
 build/
-coverage/
 *.min.js
 *.min.css
-package-lock.json
-yarn.lock
+
+# Logs
+*.log
+
+# Other
+coverage/
+.nyc_output/

@@ -1,91 +1,60 @@
 /**
  * Main JavaScript Entry Point
- * testboi4
+ * Initializes the application and sets up event listeners
  */
 
-import { initNavigation } from './components/navigation.js';
-import { initContactForm } from './components/contactForm.js';
-import { updateCurrentYear } from './utils/helpers.js';
-import { log } from './utils/logger.js';
+import { handleFormSubmit } from './utils/form-handler.js';
+import { smoothScroll } from './utils/smooth-scroll.js';
+import { initializeApp } from './utils/init.js';
 
 /**
- * Initialize the application
+ * DOM Content Loaded Event
+ * Runs when the initial HTML document has been completely loaded
  */
-const initApp = () => {
-  log('Initializing application...');
+document.addEventListener('DOMContentLoaded', () => {
+  // Initialize the application
+  initializeApp();
 
-  // Initialize components
-  initNavigation();
-  initContactForm();
+  // Set up smooth scrolling for navigation links
+  const navLinks = document.querySelectorAll('.nav__link');
+  navLinks.forEach((link) => {
+    link.addEventListener('click', smoothScroll);
+  });
 
-  // Update current year in footer
-  updateCurrentYear();
+  // Set up contact form submission
+  const contactForm = document.getElementById('contact-form');
+  if (contactForm) {
+    contactForm.addEventListener('submit', handleFormSubmit);
+  }
 
-  // Add event listener for CTA button
+  // Set up CTA button
   const ctaButton = document.getElementById('cta-button');
   if (ctaButton) {
-    ctaButton.addEventListener('click', handleCtaClick);
-  }
-
-  // Add smooth scroll behavior for anchor links
-  initSmoothScroll();
-
-  log('Application initialized successfully');
-};
-
-/**
- * Handle CTA button click
- */
-const handleCtaClick = () => {
-  log('CTA button clicked');
-  // Scroll to contact section
-  const contactSection = document.getElementById('contact');
-  if (contactSection) {
-    contactSection.scrollIntoView({ behavior: 'smooth' });
-  }
-};
-
-/**
- * Initialize smooth scrolling for anchor links
- */
-const initSmoothScroll = () => {
-  const links = document.querySelectorAll('a[href^="#"]');
-
-  links.forEach((link) => {
-    link.addEventListener('click', (e) => {
-      const href = link.getAttribute('href');
-
-      // Don't prevent default for # links
-      if (href === '#') {
-        return;
-      }
-
-      e.preventDefault();
-      const targetId = href.substring(1);
-      const targetElement = document.getElementById(targetId);
-
-      if (targetElement) {
-        targetElement.scrollIntoView({ behavior: 'smooth' });
-
-        // Update active state in navigation
-        const navLinks = document.querySelectorAll('.nav__link');
-        navLinks.forEach((navLink) => navLink.classList.remove('active'));
-        link.classList.add('active');
+    ctaButton.addEventListener('click', () => {
+      const aboutSection = document.getElementById('about');
+      if (aboutSection) {
+        aboutSection.scrollIntoView({ behavior: 'smooth' });
       }
     });
-  });
+  }
+
+  // Log application start
+  console.log('testboi4 application initialized successfully! 🚀');
+});
+
+/**
+ * Window Load Event
+ * Runs when the whole page has loaded, including all dependent resources
+ */
+window.addEventListener('load', () => {
+  // Add any animations or final setup here
+  document.body.classList.add('loaded');
+});
+
+/**
+ * Export for potential module use
+ */
+export default {
+  version: '1.0.0',
+  name: 'testboi4',
 };
-
-/**
- * DOMContentLoaded event listener
- */
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', initApp);
-} else {
-  initApp();
-}
-
-/**
- * Export for testing purposes
- */
-export { initApp, handleCtaClick };

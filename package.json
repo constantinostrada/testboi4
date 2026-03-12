@@ -1,12 +1,12 @@
 {
   "name": "testboi4",
   "version": "1.0.0",
-  "description": "A modern, lightweight web application built with vanilla HTML, CSS, and JavaScript",
+  "description": "A modern, production-ready web application built with HTML, CSS, and JavaScript",
   "main": "src/js/main.js",
   "scripts": {
-    "start": "npx http-server -p 8000 -c-1",
-    "lint": "eslint src/js/**/*.js",
-    "lint:fix": "eslint src/js/**/*.js --fix",
+    "start": "npx serve public -l 3000",
+    "lint": "eslint src/**/*.js",
+    "lint:fix": "eslint src/**/*.js --fix",
     "format": "prettier --write \"**/*.{js,css,html,md,json}\"",
     "format:check": "prettier --check \"**/*.{js,css,html,md,json}\"",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -16,20 +16,18 @@
     "css",
     "javascript",
     "vanilla-js",
-    "frontend",
-    "web"
+    "web",
+    "frontend"
   ],
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "eslint": "^8.56.0",
-    "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-import": "^2.29.1",
-    "http-server": "^14.1.1",
-    "prettier": "^3.2.4"
+    "eslint": "^8.50.0",
+    "eslint-config-prettier": "^9.0.0",
+    "prettier": "^3.0.3",
+    "serve": "^14.2.1"
   },
   "engines": {
-    "node": ">=14.0.0",
-    "npm": ">=6.0.0"
+    "node": ">=14.0.0"
   }
 }

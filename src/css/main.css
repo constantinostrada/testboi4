@@ -1,6 +1,11 @@
-/* ===========================
-   Global Styles
-   =========================== */
+/**
+ * Main Stylesheet
+ * Imports variables and defines base styles and components
+ */
+
+/* ==========================================
+   Reset & Base Styles
+   ========================================== */
 
 *,
 *::before,
@@ -11,23 +16,27 @@
 }
 
 html {
-  scroll-behavior: smooth;
   font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
 }
 
 body {
   font-family: var(--font-family-base);
   font-size: var(--font-size-base);
+  font-weight: var(--font-weight-normal);
   line-height: var(--line-height-normal);
-  color: var(--text-primary);
-  background-color: var(--bg-primary);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  color: var(--color-gray-900);
+  background-color: var(--color-white);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
-/* ===========================
+/* ==========================================
    Typography
-   =========================== */
+   ========================================== */
 
 h1,
 h2,
@@ -35,7 +44,6 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: var(--font-family-heading);
   font-weight: var(--font-weight-bold);
   line-height: var(--line-height-tight);
   margin-bottom: var(--spacing-md);
@@ -79,82 +87,112 @@ a:hover {
   color: var(--color-primary-dark);
 }
 
-/* ===========================
+/* ==========================================
    Layout
-   =========================== */
+   ========================================== */
 
 .container {
-  width: 100%;
   max-width: var(--container-max-width);
   margin: 0 auto;
   padding: 0 var(--container-padding);
+  width: 100%;
 }
 
 .main {
-  min-height: calc(100vh - 80px - 60px); /* viewport - header - footer */
+  flex: 1;
 }
 
-/* ===========================
-   Sections
-   =========================== */
+/* ==========================================
+   Header & Navigation
+   ========================================== */
 
-section {
-  padding: var(--spacing-4xl) 0;
+.header {
+  background-color: var(--color-white);
+  border-bottom: 1px solid var(--color-gray-200);
+  padding: var(--spacing-lg) 0;
+  position: sticky;
+  top: 0;
+  z-index: var(--z-sticky);
+  box-shadow: var(--shadow-sm);
 }
 
-.section__title {
-  text-align: center;
-  margin-bottom: var(--spacing-3xl);
-  color: var(--text-primary);
-}
-
-/* ===========================
-   Hero Section
-   =========================== */
-
-.hero {
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
-  color: var(--text-inverse);
-  padding: var(--spacing-4xl) 0;
-  min-height: 500px;
+.nav {
   display: flex;
+  justify-content: space-between;
   align-items: center;
 }
 
-.hero__content {
+.nav__brand h1 {
+  font-size: var(--font-size-2xl);
+  color: var(--color-primary);
+  margin: 0;
+}
+
+.nav__menu {
+  display: flex;
+  list-style: none;
+  gap: var(--spacing-xl);
+}
+
+.nav__link {
+  color: var(--color-gray-700);
+  font-weight: var(--font-weight-medium);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast);
+}
+
+.nav__link:hover {
+  color: var(--color-primary);
+  background-color: var(--color-gray-50);
+}
+
+/* ==========================================
+   Hero Section
+   ========================================== */
+
+.hero {
   text-align: center;
-  max-width: 800px;
-  margin: 0 auto;
+  padding: var(--spacing-3xl) 0;
 }
 
 .hero__title {
   font-size: var(--font-size-5xl);
+  color: var(--color-gray-900);
   margin-bottom: var(--spacing-lg);
-  color: var(--text-inverse);
 }
 
-.hero__subtitle {
+.hero__description {
   font-size: var(--font-size-xl);
-  margin-bottom: var(--spacing-2xl);
-  color: var(--color-gray-100);
+  color: var(--color-gray-600);
+  max-width: 600px;
+  margin: 0 auto var(--spacing-xl);
 }
 
-/* ===========================
+/* ==========================================
    Features Section
-   =========================== */
+   ========================================== */
 
 .features {
-  background-color: var(--bg-secondary);
+  padding: var(--spacing-3xl) 0;
+  background-color: var(--color-gray-50);
+}
+
+.section__title {
+  text-align: center;
+  color: var(--color-gray-900);
+  margin-bottom: var(--spacing-2xl);
 }
 
 .features__grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: var(--spacing-xl);
+  margin-top: var(--spacing-2xl);
 }
 
 .feature-card {
-  background-color: var(--bg-primary);
+  background-color: var(--color-white);
   padding: var(--spacing-xl);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-md);
@@ -163,31 +201,32 @@ section {
 }
 
 .feature-card:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-xl);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
 }
 
 .feature-card__icon {
   font-size: var(--font-size-5xl);
-  margin-bottom: var(--spacing-lg);
-}
-
-.feature-card__title {
-  font-size: var(--font-size-xl);
   margin-bottom: var(--spacing-md);
 }
 
-.feature-card__description {
-  color: var(--text-secondary);
-  margin-bottom: 0;
+.feature-card__title {
+  color: var(--color-gray-900);
+  margin-bottom: var(--spacing-sm);
 }
 
-/* ===========================
+.feature-card__description {
+  color: var(--color-gray-600);
+  font-size: var(--font-size-sm);
+  margin: 0;
+}
+
+/* ==========================================
    Contact Section
-   =========================== */
+   ========================================== */
 
 .contact {
-  background-color: var(--bg-primary);
+  padding: var(--spacing-3xl) 0;
 }
 
 .contact-form {
@@ -201,9 +240,9 @@ section {
 
 .form-label {
   display: block;
-  margin-bottom: var(--spacing-sm);
   font-weight: var(--font-weight-medium);
-  color: var(--text-primary);
+  color: var(--color-gray-700);
+  margin-bottom: var(--spacing-sm);
 }
 
 .form-input {
@@ -211,8 +250,8 @@ section {
   padding: var(--spacing-md);
   border: 1px solid var(--color-gray-300);
   border-radius: var(--radius-md);
-  font-size: var(--font-size-base);
   font-family: var(--font-family-base);
+  font-size: var(--font-size-base);
   transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
 }
 
@@ -222,14 +261,13 @@ section {
   box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
 }
 
-.form-textarea {
+textarea.form-input {
   resize: vertical;
-  min-height: 120px;
 }
 
-/* ===========================
+/* ==========================================
    Buttons
-   =========================== */
+   ========================================== */
 
 .btn {
   display: inline-block;
@@ -240,88 +278,137 @@ section {
   border: none;
   border-radius: var(--radius-md);
   cursor: pointer;
-  transition: background-color var(--transition-fast), transform var(--transition-fast);
+  transition: all var(--transition-fast);
   font-family: var(--font-family-base);
-}
-
-.btn:hover {
-  transform: translateY(-2px);
-}
-
-.btn:active {
-  transform: translateY(0);
 }
 
 .btn--primary {
   background-color: var(--color-primary);
-  color: var(--text-inverse);
+  color: var(--color-white);
 }
 
 .btn--primary:hover {
   background-color: var(--color-primary-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
 }
 
-.btn--secondary {
-  background-color: var(--color-gray-200);
-  color: var(--text-primary);
+.btn--primary:active {
+  transform: translateY(0);
 }
 
-.btn--secondary:hover {
-  background-color: var(--color-gray-300);
+/* ==========================================
+   Footer
+   ========================================== */
+
+.footer {
+  background-color: var(--color-gray-900);
+  color: var(--color-gray-300);
+  padding: var(--spacing-xl) 0;
+  margin-top: auto;
 }
 
-/* ===========================
-   Utilities
-   =========================== */
-
-.text-center {
+.footer__text {
   text-align: center;
+  margin: 0;
 }
 
-.mt-1 {
-  margin-top: var(--spacing-md);
-}
-
-.mb-1 {
-  margin-bottom: var(--spacing-md);
-}
-
-.hidden {
-  display: none;
-}
-
-.visible {
-  display: block;
-}
-
-/* ===========================
+/* ==========================================
    Responsive Design
-   =========================== */
+   ========================================== */
 
 @media (max-width: 768px) {
   html {
     font-size: 14px;
   }
 
+  .nav {
+    flex-direction: column;
+    gap: var(--spacing-lg);
+  }
+
+  .nav__menu {
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    text-align: center;
+  }
+
   .hero__title {
     font-size: var(--font-size-3xl);
-  }
-
-  .hero__subtitle {
-    font-size: var(--font-size-lg);
-  }
-
-  section {
-    padding: var(--spacing-3xl) 0;
-  }
-}
-
-@media (max-width: 480px) {
-  .hero__title {
-    font-size: var(--font-size-2xl);
   }
 
   .features__grid {
     grid-template-columns: 1fr;
   }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 var(--spacing-sm);
+  }
+
+  .hero {
+    padding: var(--spacing-2xl) 0;
+  }
+
+  .features,
+  .contact {
+    padding: var(--spacing-2xl) 0;
+  }
+}
+
+/* ==========================================
+   Utility Classes
+   ========================================== */
+
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.mt-sm {
+  margin-top: var(--spacing-sm);
+}
+
+.mt-md {
+  margin-top: var(--spacing-md);
+}
+
+.mt-lg {
+  margin-top: var(--spacing-lg);
+}
+
+.mb-sm {
+  margin-bottom: var(--spacing-sm);
+}
+
+.mb-md {
+  margin-bottom: var(--spacing-md);
+}
+
+.mb-lg {
+  margin-bottom: var(--spacing-lg);
+}
+
+.hidden {
+  display: none;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
 }

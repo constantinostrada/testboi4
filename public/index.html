@@ -3,24 +3,22 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <meta
       name="description"
       content="testboi4 - A modern web application"
     />
-    <meta name="keywords" content="html, css, javascript, web app" />
+    <meta name="keywords" content="html, css, javascript, web, app" />
     <meta name="author" content="" />
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="../src/assets/images/favicon.ico" />
+    <title>testboi4</title>
 
     <!-- Stylesheets -->
     <link rel="stylesheet" href="../src/css/variables.css" />
     <link rel="stylesheet" href="../src/css/main.css" />
-    <link rel="stylesheet" href="../src/css/components/header.css" />
-    <link rel="stylesheet" href="../src/css/components/footer.css" />
 
-    <title>testboi4</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../src/assets/images/favicon.ico" />
   </head>
   <body>
     <!-- Header -->
@@ -31,76 +29,57 @@
             <h1>testboi4</h1>
           </div>
           <ul class="nav__menu">
-            <li class="nav__item">
-              <a href="#home" class="nav__link">Home</a>
-            </li>
-            <li class="nav__item">
-              <a href="#about" class="nav__link">About</a>
-            </li>
-            <li class="nav__item">
-              <a href="#contact" class="nav__link">Contact</a>
-            </li>
+            <li class="nav__item"><a href="#home" class="nav__link">Home</a></li>
+            <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
+            <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
           </ul>
-          <button class="nav__toggle" aria-label="Toggle navigation">
-            <span></span>
-            <span></span>
-            <span></span>
-          </button>
         </nav>
       </div>
     </header>
 
     <!-- Main Content -->
     <main class="main">
-      <!-- Hero Section -->
-      <section class="hero" id="home">
-        <div class="container">
-          <div class="hero__content">
-            <h2 class="hero__title">Welcome to testboi4</h2>
-            <p class="hero__subtitle">
-              A modern, lightweight web application built with vanilla HTML, CSS, and JavaScript
-            </p>
-            <button class="btn btn--primary" id="cta-button">
-              Get Started
-            </button>
-          </div>
-        </div>
-      </section>
+      <div class="container">
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+          <h2 class="hero__title">Welcome to testboi4</h2>
+          <p class="hero__description">
+            A modern, production-ready web application built with HTML, CSS, and JavaScript.
+          </p>
+          <button class="btn btn--primary" id="cta-button">Get Started</button>
+        </section>
 
-      <!-- Features Section -->
-      <section class="features" id="about">
-        <div class="container">
+        <!-- Features Section -->
+        <section id="about" class="features">
           <h2 class="section__title">Features</h2>
           <div class="features__grid">
             <div class="feature-card">
               <div class="feature-card__icon">🚀</div>
-              <h3 class="feature-card__title">Fast & Lightweight</h3>
+              <h3 class="feature-card__title">Fast & Modern</h3>
               <p class="feature-card__description">
-                Built with vanilla JavaScript for optimal performance
+                Built with modern web standards and best practices.
               </p>
             </div>
             <div class="feature-card">
               <div class="feature-card__icon">📱</div>
-              <h3 class="feature-card__title">Responsive Design</h3>
+              <h3 class="feature-card__title">Responsive</h3>
               <p class="feature-card__description">
-                Works seamlessly across all devices and screen sizes
+                Works seamlessly across all devices and screen sizes.
               </p>
             </div>
             <div class="feature-card">
-              <div class="feature-card__icon">🎨</div>
-              <h3 class="feature-card__title">Modern UI</h3>
+              <div class="feature-card__icon">⚡</div>
+              <h3 class="feature-card__title">Performant</h3>
               <p class="feature-card__description">
-                Clean and intuitive user interface with CSS custom properties
+                Optimized for speed and efficiency.
               </p>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <!-- Contact Section -->
-      <section class="contact" id="contact">
-        <div class="container">
-          <h2 class="section__title">Get in Touch</h2>
+        <!-- Contact Section -->
+        <section id="contact" class="contact">
+          <h2 class="section__title">Get In Touch</h2>
           <form class="contact-form" id="contact-form">
             <div class="form-group">
               <label for="name" class="form-label">Name</label>
@@ -109,6 +88,7 @@
                 id="name"
                 name="name"
                 class="form-input"
+                placeholder="Enter your name"
                 required
               />
             </div>
@@ -119,6 +99,7 @@
                 id="email"
                 name="email"
                 class="form-input"
+                placeholder="Enter your email"
                 required
               />
             </div>
@@ -127,22 +108,23 @@
               <textarea
                 id="message"
                 name="message"
-                class="form-input form-textarea"
+                class="form-input"
                 rows="5"
+                placeholder="Enter your message"
                 required
               ></textarea>
             </div>
             <button type="submit" class="btn btn--primary">Send Message</button>
           </form>
-        </div>
-      </section>
+        </section>
+      </div>
     </main>
 
     <!-- Footer -->
     <footer class="footer">
       <div class="container">
         <p class="footer__text">
-          &copy; <span id="current-year"></span> testboi4. All rights reserved.
+          &copy; 2024 testboi4. All rights reserved.
         </p>
       </div>
     </footer>

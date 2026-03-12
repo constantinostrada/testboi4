@@ -1,101 +1,139 @@
 # Contributing to testboi4
 
-Thank you for considering contributing to testboi4! This document provides guidelines for contributing to the project.
+First off, thank you for considering contributing to testboi4! It's people like you that make this project great.
 
 ## Code of Conduct
 
-By participating in this project, you agree to maintain a respectful and inclusive environment for everyone.
+By participating in this project, you are expected to uphold our Code of Conduct:
 
-## How to Contribute
+- Be respectful and inclusive
+- Exercise consideration and empathy
+- Focus on what is best for the community
+- Use welcoming and inclusive language
+
+## How Can I Contribute?
 
 ### Reporting Bugs
 
-1. Check if the bug has already been reported in the Issues section
-2. If not, create a new issue with a clear title and description
-3. Include steps to reproduce the bug
-4. Add any relevant screenshots or error messages
+Before creating bug reports, please check existing issues to avoid duplicates. When you create a bug report, include as many details as possible:
 
-### Suggesting Features
+- **Use a clear and descriptive title**
+- **Describe the exact steps to reproduce the problem**
+- **Provide specific examples**
+- **Describe the behavior you observed and what you expected**
+- **Include screenshots if relevant**
+- **Include your environment details** (OS, browser, versions, etc.)
 
-1. Check if the feature has already been suggested
-2. Create a new issue with the "feature request" label
-3. Clearly describe the feature and its benefits
-4. Provide examples of how it would work
+### Suggesting Enhancements
+
+Enhancement suggestions are tracked as GitHub issues. When creating an enhancement suggestion, include:
+
+- **Use a clear and descriptive title**
+- **Provide a detailed description of the suggested enhancement**
+- **Explain why this enhancement would be useful**
+- **List any alternative solutions you've considered**
 
 ### Pull Requests
 
-1. Fork the repository
-2. Create a new branch for your feature or bugfix:
-   ```bash
-   git checkout -b feature/your-feature-name
-   ```
-3. Make your changes following the code style guidelines
-4. Test your changes thoroughly
-5. Commit your changes with clear, descriptive messages
-6. Push to your fork and submit a pull request
+1. Fork the repo and create your branch from `main`
+2. If you've added code that should be tested, add tests
+3. Ensure your code follows the existing style (run linters)
+4. Update documentation as needed
+5. Write a clear commit message
 
-## Development Guidelines
+#### Pull Request Process
 
-### Code Style
+1. Update the README.md with details of changes if applicable
+2. Follow the coding style guidelines below
+3. The PR will be merged once you have approval from a maintainer
 
-- Use ES6+ JavaScript features
-- Follow the existing code formatting (use Prettier)
-- Write clear, self-documenting code
-- Add comments for complex logic
-- Follow the ESLint rules configured in the project
+## Style Guidelines
 
-### File Organization
+### Git Commit Messages
 
-- Keep files focused and single-purpose
-- Place utility functions in `src/js/utils/`
-- Place components in `src/js/components/`
-- Keep CSS modular and component-based
-
-### CSS Guidelines
-
-- Use CSS custom properties for theming
-- Follow BEM naming convention for classes
-- Keep styles scoped to components
-- Mobile-first responsive design
-
-### JavaScript Guidelines
-
-- Use ES6 modules
-- Keep functions small and focused
-- Use meaningful variable and function names
-- Handle errors appropriately
-- Add JSDoc comments for public functions
-
-### Commit Messages
-
-- Use clear and descriptive commit messages
-- Start with a verb in present tense (Add, Fix, Update, Remove)
-- Keep the first line under 50 characters
-- Add detailed description if needed
+- Use the present tense ("Add feature" not "Added feature")
+- Use the imperative mood ("Move cursor to..." not "Moves cursor to...")
+- Limit the first line to 72 characters or less
+- Reference issues and pull requests liberally after the first line
 
 Example:
 ```
-Add form validation for contact form
+Add user authentication feature
 
-- Implement email validation
-- Add required field checks
-- Display error messages to users
+- Implement login form
+- Add JWT token validation
+- Create user session management
+
+Closes #123
 ```
 
-### Testing
+### JavaScript Style Guide
 
-- Test your changes in multiple browsers
-- Test responsive behavior on different screen sizes
-- Verify accessibility features work correctly
+- Follow the ESLint configuration provided
+- Use ES6+ features when appropriate
+- Write meaningful variable and function names
+- Add comments for complex logic
+- Keep functions small and focused
+- Use async/await instead of promises when possible
 
-## Getting Help
+### CSS Style Guide
 
-If you need help or have questions:
+- Follow the existing naming conventions (BEM-like methodology)
+- Use CSS custom properties for values that might be reused
+- Mobile-first responsive design
+- Keep selectors simple and performant
+- Group related properties together
 
-- Check the README.md for setup instructions
-- Review existing issues and pull requests
-- Create a new issue with the "question" label
+### HTML Style Guide
 
-## License
+- Use semantic HTML5 elements
+- Include proper ARIA labels for accessibility
+- Keep markup clean and properly indented
+- Use lowercase for element names and attributes
+- Always include alt text for images
 
-By contributing to testboi4, you agree that your contributions will be licensed under the MIT License.
+## Development Process
+
+1. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+2. **Start development server**
+   ```bash
+   npm start
+   ```
+
+3. **Run linting**
+   ```bash
+   npm run lint
+   ```
+
+4. **Format code**
+   ```bash
+   npm run format
+   ```
+
+5. **Before committing**
+   - Run linting and fix any issues
+   - Format your code
+   - Test in multiple browsers if possible
+   - Ensure no console errors
+
+## Project Structure
+
+```
+testboi4/
+├── src/              # Source files
+│   ├── js/          # JavaScript modules
+│   ├── css/         # Stylesheets
+│   └── assets/      # Static assets
+├── public/          # Public files
+└── docs/            # Documentation
+```
+
+## Questions?
+
+Feel free to open an issue with your question or reach out to the maintainers.
+
+Thank you for contributing! 🎉
